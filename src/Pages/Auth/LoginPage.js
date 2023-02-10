@@ -1,53 +1,26 @@
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/authContext";
-
 
 export default function LoginPage() {
 
-    const { login, resetPassword } = useAuth();
-    const navigate = useNavigate();
+    const { login, resetPassword,user} = useAuth();
+    const navigate =useNavigate();
 
     const [error, setError] = useState()
-    const [user, setUser] = useState({
+    const [DatoLogin, setDatoLogin] = useState({
         email: '',
         password: '',
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError("");
-        try {
-
-            await login(user.email, user.password);
-            navigate('/home');
-        } catch (error) {
-
-            if (error.code === "auth/wrong-password") {
-                setError("correo o contraseña incorrectos")
-            }
-            if (error.code === "auth/invalid-email") {
-                setError("El correo debe tener un formato válido")
-            }
-            if (error.code === "auth/email-already-in-use") {
-                setError("El correo electronico ingresado ya se encuentra registrado")
-            }
-            if (error.code === "auth/user-not-found") {
-                setError("correo o contraseña incorrectos")
-            }
-            if (error.code === "auth/network-request-failed") {
-                setError("No tienes acceso a internet")
-            }
-            if (error.message === "Firebase: Error (auth/unauthorized-domain).") {
-                setError("No tiene acceso desde este dominio.")
-            }
-        }
-
+        await login(DatoLogin,setError,navigate);
     }
 
     //registra cambios en formularios
     const handleChange = ({ target: { name, value } }) => {
-        setUser({ ...user, [name]: value })
+        setDatoLogin({ ...DatoLogin, [name]: value })
     }
 
 
@@ -55,7 +28,7 @@ export default function LoginPage() {
         e.preventDefault()
         if (!user.email) return setError("Ingresá el correo que desea  cambiar contraseña");
 
-        await resetPassword(user.email, setError)
+        await resetPassword(DatoLogin.email, setError)
     }
 
     return (

@@ -2,6 +2,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
 
 export default function resetPasswordService(email,setError) {
+    setError("")
     sendPasswordResetEmail(auth, email)
         .then(() => {
             setError("se envio un correo para realizar el cambio de contraseña")
@@ -26,7 +27,6 @@ export default function resetPasswordService(email,setError) {
             if (error.message === "Firebase: Error (auth/unauthorized-domain).") {
                 setError("No tiene acceso desde este dominio.")
             }
-            // ..
         });
 }
 
