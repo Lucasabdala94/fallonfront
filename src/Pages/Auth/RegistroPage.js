@@ -20,7 +20,7 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        signup(dataRegister,setError,navigate)
+        await signup(dataRegister,setError,navigate)
 
     }
 
