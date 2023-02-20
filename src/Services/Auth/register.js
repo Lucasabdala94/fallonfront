@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword,/* updateProfile */ } from "firebase/auth"
 import { auth } from "../../firebase";
 
 export default async function registerService(dataRegiste, setError,navigate) {
@@ -28,4 +28,14 @@ export default async function registerService(dataRegiste, setError,navigate) {
         }
 
     }
+ 
+        /* updateProfile(auth.currentUser, {
+            displayNameuserType: "Jane Q. User",
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            console.log(error.code)
+        }); */
+    
 }
