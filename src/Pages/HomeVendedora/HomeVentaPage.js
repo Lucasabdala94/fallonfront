@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import NavList from "../../Component/layout/navLink/NavLink";
+import "./HomeVenta.css"
 
 
 export default function HomeVentaPage() {
@@ -8,9 +9,12 @@ export default function HomeVentaPage() {
 
     return (
         <>
-            <header>
+            <header className="header">
+                <picture className="logo">
+                    <img className="logImagen" src={require("./../../assets/LogoFallon.png")} alt="logo"/>
+                </picture>
                 <NavList />
-                <button onClick={logout}>Logout</button>
+                <button className="buton-header" onClick={logout}>Logout</button>
             </header>
             <Outlet />
         </>

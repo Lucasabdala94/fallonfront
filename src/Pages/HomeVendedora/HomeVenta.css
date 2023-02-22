@@ -1,0 +1,21 @@
+.header{
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    display: block;
+    height: 250px;
+    padding: 10px;
+}
+.logImagen{
+    height: 100px;
+    border-radius: 50%;
+}
+
+.buton-header{
+    height: 25px;
+}

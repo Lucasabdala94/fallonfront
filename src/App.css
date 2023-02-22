@@ -2,6 +2,8 @@ body{
   background-color: #282c34;
   min-height: 100vh;
   color: white;
+  margin: 0px;
+  box-sizing: content-box;
 }
 
 
