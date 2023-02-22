@@ -28,14 +28,5 @@ export default async function registerService(dataRegiste, setError,navigate) {
         }
 
     }
- 
-        /* updateProfile(auth.currentUser, {
-            displayNameuserType: "Jane Q. User",
-          }).then(() => {
-            // Profile updated!
-            // ...
-          }).catch((error) => {
-            console.log(error.code)
-        }); */
     
 }
