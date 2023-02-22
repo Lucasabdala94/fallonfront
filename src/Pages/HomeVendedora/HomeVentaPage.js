@@ -4,14 +4,14 @@ import NavList from "../../Component/layout/navLink/NavLink";
 
 
 export default function HomeVentaPage() {
-    const{logout}=useAuth();
+    const { logout } = useAuth();
 
     return (
         <>
             <header>
                 <NavList />
+                <button onClick={logout}>Logout</button>
             </header>
-            <button onClick={logout}>Logout</button>
             <Outlet />
         </>
 

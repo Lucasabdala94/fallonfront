@@ -1,38 +1,35 @@
-import { NavLink,useResolvedPath } from "react-router-dom";
 import "./Navlink.css"
+
+import { NavLink, useResolvedPath } from "react-router-dom";
 export default function NavList() {
 
-//extraigo el patch para ponerle la clase active si coincide
-const path=useResolvedPath().pathname
-
+  //extraigo el patch para ponerle la clase active si coincide
+  const path = useResolvedPath().pathname
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className="navegador">
+      <ul className="contenedorOpciones">
+        <li className="opciones">
           <NavLink
             to="./"
-            className={path==="/home/" ? "NavActive" : undefined }
+            className={path === "/home/" || path === "/home" ? "NavActive" : "NavInactivo"}
           >
             Home
           </NavLink>
         </li>
-        <li>
+        <li className="opciones">
           <NavLink
             to="./compras"
-            className={path==="/home/compras" ? "NavActive" : undefined }
+            className={path === "/home/compras" ? "NavActive" : "NavInactivo"}
           >
             Compras
           </NavLink>
         </li>
-        <li>
-          <NavLink to="profile">
-            {({ isActive }) => (
-              <span
-              className={path==="/home/profile" ? "NavActive" : undefined }
-              >
-                Profile
-              </span>
-            )}
+        <li className="opciones">
+          <NavLink to="profile"
+            className={path === "/home/profile" ? "NavActive" : "NavInactivo"}
+          >
+            Profile
+
           </NavLink>
         </li>
       </ul>
