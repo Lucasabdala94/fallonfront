@@ -1,22 +1,18 @@
-import { updateEmail} from "firebase/auth"
+import { updateProfile} from "firebase/auth"
 import { auth } from "../../firebase";
 
 
 
 
-export default async function actualizarCorreo(DatoResetCorreo, setError) {
+export default async function actualizarUsername(DatoResetUsername, setError) {
     
     setError("");
-
-    await updateEmail(auth.currentUser, DatoResetCorreo).then(() => {
-        setError("Correo electronico actualizado")
+    await updateProfile(auth.currentUser, { displayName:`${DatoResetUsername}`,}).then(() => {
+        setError("Nombre de usuario actualizado")
     }).catch((error) => {
 
         if (error.code === "auth/requires-recent-login") {
             setError("Para poder cambiar debe haber inicia sesión recientemente")
-        }
-        if (error.code === "auth/wrong-password") {
-            setError("correo o contraseña incorrectos")
         }
         if (error.code === "auth/invalid-email") {
             setError("El correo debe tener un formato válido")
