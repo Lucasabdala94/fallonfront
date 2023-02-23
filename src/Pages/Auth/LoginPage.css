@@ -1,15 +1,61 @@
 .Contenedor-centrado{
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .Contenedor-formulario{
     background-color: rgb(201 55 62);
-    position: absolute;
-    top: 20%;
-    margin-left: auto;
-    margin-right: auto;
     height: 65vh;
-    width: 30vw;
+    width: 65vh;
     border-radius: 10px;
+    padding:15px
+}
+.contenedor-logo{
+    height: 40vh;
+    display: block;
+    box-sizing: content-box;
+    margin-bottom: 5px;
+}
+.logo-login{
+    width: 50%;
+    border-radius: 59%;
+    position: relative;
+    top: 10%;
+    left: 25%;
+}
+.form-login{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-login__input{
+    font-size: 100%;
+    border: 1px solid rgb(24, 23, 23);
+    border-radius: 12px;
+    padding: 10px;
+    outline: none;
+    width: 30vh;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.815);
+}
+.contenedor-error{
+    height: 7vh;
+    width: 50vh;
+    margin:0 auto 9px;
+;
+}
+.error{
+    color:rgb(255,255,255);
+    font-size:30px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
 }

@@ -35,14 +35,18 @@ export default function LoginPage() {
     return (
         <div className="Contenedor-centrado">
             <div className="Contenedor-formulario">
-                <h1>Login</h1>
-                {error && <p>{error}</p>}
-                <picture className="logo">
-                    <img className="logImagen" src={require("./../../assets/LogoFallon.png")} alt="logo" />
+                
+                
+                <picture className="contenedor-logo">
+                    <img className="logo-login" src={require("./../../assets/LogoFallon.png")} alt="logo" />
                 </picture>
-                <form onSubmit={handleSubmit} >
-                    <input onChange={handleChange} type="text" name="email"></input>
-                    <input onChange={handleChange} type="password" name="password"></input>
+                <div className="contenedor-error">
+                    {error && <p className="error">{error}</p>}
+                </div>
+                
+                <form className="form-login" onSubmit={handleSubmit} >
+                    <input className="form-login__input" onChange={handleChange} type="text" name="email"></input>
+                    <input className="form-login__input" onChange={handleChange} type="password" name="password"></input>
                     <button >Login</button>
                 </form>
                 <button onClick={handleResetPassword}>Olvidaste tu contraseña???.....</button>
