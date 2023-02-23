@@ -5,5 +5,7 @@ body{
   margin: 0px;
   box-sizing: content-box;
 }
-
+.app{
+  height: 100vh;
+}
 

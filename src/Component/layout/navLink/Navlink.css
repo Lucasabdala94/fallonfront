@@ -11,6 +11,8 @@
 }
 .navegador{
     height: 130px;
+    display: flex;
+    align-items: center;
 }
 .contenedorOpciones{
     list-style: none;
