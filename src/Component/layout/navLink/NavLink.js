@@ -28,7 +28,7 @@ export default function NavList() {
           <NavLink to="profile"
             className={path === "/home/profile" ? "NavActive" : "NavInactivo"}
           >
-            Profile
+            Perfil
 
           </NavLink>
         </li>

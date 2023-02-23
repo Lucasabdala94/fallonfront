@@ -1,11 +1,13 @@
 body{
   background-color: #282c34;
-  min-height: 100vh;
   color: white;
   margin: 0px;
   box-sizing: content-box;
 }
-.app{
-  height: 100vh;
+
+.apps{
+  margin:0px;
+  width: 100%;
+  min-height: 100vh;
 }
 

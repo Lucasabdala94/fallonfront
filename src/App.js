@@ -21,7 +21,7 @@ import LogedMultipleProtected from './Component/Routing/LogedMultipleProtected';
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
+      <div className='apps'>
         <Routes>
           <Route path='/' element={<LogedMultipleProtected><LoginPage /></LogedMultipleProtected>} />
           <Route path='/home' element={<LoginProtected><HomeVentaPage /></LoginProtected>}>

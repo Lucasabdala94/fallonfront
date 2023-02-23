@@ -1,0 +1,15 @@
+.Contenedor-centrado{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Contenedor-formulario{
+    background-color: rgb(201 55 62);
+    position: absolute;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 65vh;
+    width: 30vw;
+    border-radius: 10px;
+}

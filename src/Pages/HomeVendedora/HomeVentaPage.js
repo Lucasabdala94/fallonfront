@@ -10,11 +10,13 @@ export default function HomeVentaPage() {
     return (
         <>
             <header className="header">
-                <picture className="logo">
-                    <img className="logImagen" src={require("./../../assets/LogoFallon.png")} alt="logo"/>
-                </picture>
-                <NavList />
-                <button className="buton-header" onClick={logout}>Logout</button>
+                <div className="header-contenedor">
+                    <picture className="logo">
+                        <img className="logImagen" src={require("./../../assets/LogoFallon.png")} alt="logo"/>
+                    </picture>
+                    <NavList />
+                    <button className="buton-header" onClick={logout}>Salir</button>
+                </div>
             </header>
             <Outlet />
         </>
