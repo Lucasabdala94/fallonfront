@@ -1,31 +1,41 @@
-.Contenedor-centrado{
+.Contenedor-centrado {
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.Contenedor-formulario{
+
+.Contenedor-formulario {
     background-color: rgb(201 55 62);
-    height: 65vh;
+    height: 90vh;
     width: 65vh;
     border-radius: 10px;
-    padding:15px
+    padding: 15px
 }
-.contenedor-logo{
-    height: 40vh;
-    display: block;
-    box-sizing: content-box;
-    margin-bottom: 5px;
+
+.contenedor-logo {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    box-sizing:border-box;
+    user-select:none;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-.logo-login{
+
+.logo-login {
     width: 50%;
     border-radius: 59%;
-    position: relative;
-    top: 10%;
-    left: 25%;
+    
+    box-shadow: 2px 2px 5px #121212;
+    -webkit-box-shadow: 2px 2px 5px #121212;
+    -moz-box-shadow: 2px 2px 5px #121212;
+    user-select:none;
+    
 }
-.form-login{
+
+.form-login {
     width: 100%;
     display: flex;
     align-items: center;
@@ -33,29 +43,64 @@
     flex-direction: column;
     gap: 15px;
 }
-.form-login__input{
+
+.form-login__input {
     font-size: 100%;
     border: 1px solid rgb(24, 23, 23);
     border-radius: 12px;
     padding: 10px;
     outline: none;
-    width: 30vh;
-    text-align: center;
+    width: 45vh;
     font-weight: 600;
     letter-spacing: 1px;
     color: rgba(0, 0, 0, 0.815);
+    box-shadow: 2px 2px 5px #121212;
+    -webkit-box-shadow: 2px 2px 5px #121212;
+    -moz-box-shadow: 2px 2px 5px #121212;
 }
-.contenedor-error{
-    height: 7vh;
+
+.contenedor-error {
+    display: block;
+    height: 14vh;
     width: 50vh;
-    margin:0 auto 9px;
-;
+    margin: 0 auto 20px;
+    user-select:none;
 }
-.error{
-    color:rgb(255,255,255);
-    font-size:30px;
-    font-weight: bold;
+
+.error {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    font-weight: 600;
     text-align: center;
     width: 100%;
     margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    user-select:none;
+}
+
+.button-login{
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 2px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    margin-bottom: 75px;
+    box-shadow: 2px 2px 5px #121212;
+    -webkit-box-shadow: 2px 2px 5px #121212;
+    -moz-box-shadow: 2px 2px 5px #121212;
+}
+.button-reset{
+    font-size: 15px;
+    padding: 2px;
+    border-radius: 4px;
+    position: absolute;
+    font-weight: 600;
+    border: none;
+    box-shadow: 2px 2px 5px #121212;
+    -webkit-box-shadow: 2px 2px 5px #121212;
+    -moz-box-shadow: 2px 2px 5px #121212;
+    margin-left: 35vh;
 }

@@ -1,14 +1,16 @@
 .NavActive{
     color: rgb(255,255,255);
-    border-bottom: 2px solid rgb(255,255,255) ;
+    border-bottom: 4px solid rgb(255,255,255) ;
     text-decoration: none;
     padding-bottom:2px;
+    text-shadow: 1px 1px 2px #121212b8;
+    -webkit-text-shadow: 1px 1px 2px #121212b8; 
+    -moz-text-shadow: 1px 1px 2px #121212b8;
 }
 .NavInactivo{
     padding-bottom:2px;
     text-decoration: none;
     color: rgb(255,255,255);
-
 }
 .navegador{
     height: 130px;

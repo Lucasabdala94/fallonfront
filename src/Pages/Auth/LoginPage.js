@@ -5,7 +5,7 @@ import "./LoginPage.css";
 
 export default function LoginPage() {
 
-    const { login, resetPassword, user } = useAuth();
+    const { login, resetPassword } = useAuth();
     const navigate = useNavigate();
 
     const [error, setError] = useState()
@@ -27,7 +27,7 @@ export default function LoginPage() {
 
     const handleResetPassword = async (e) => {
         e.preventDefault()
-        if (!user.email) return setError("Ingresá el correo que desea  cambiar contraseña");
+        if (!DatoLogin?.email || DatoLogin?.email===null) return setError("Ingresá el correo que desea cambiar contraseña");
 
         await resetPassword(DatoLogin.email, setError)
     }
@@ -35,21 +35,19 @@ export default function LoginPage() {
     return (
         <div className="Contenedor-centrado">
             <div className="Contenedor-formulario">
-                
-                
-                <picture className="contenedor-logo">
+                <div className="contenedor-logo">
                     <img className="logo-login" src={require("./../../assets/LogoFallon.png")} alt="logo" />
-                </picture>
+                </div>
                 <div className="contenedor-error">
                     {error && <p className="error">{error}</p>}
                 </div>
                 
                 <form className="form-login" onSubmit={handleSubmit} >
-                    <input className="form-login__input" onChange={handleChange} type="text" name="email"></input>
-                    <input className="form-login__input" onChange={handleChange} type="password" name="password"></input>
-                    <button >Login</button>
+                    <input className="form-login__input" placeholder="correo@gmail.com" onChange={handleChange} type="text" name="email"></input>
+                    <input className="form-login__input" placeholder="contraseña" onChange={handleChange} type="password" name="password"></input>
+                    <button className="button-login" >Ingresar</button>
                 </form>
-                <button onClick={handleResetPassword}>Olvidaste tu contraseña???.....</button>
+                <button className="button-reset" onClick={handleResetPassword}>Olvidaste tu contraseña?</button>
             </div>
         </div>
     )

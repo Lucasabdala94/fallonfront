@@ -9,7 +9,7 @@ export default async function loginService(DatoLogin,setError,navigate) {
         await signInWithEmailAndPassword(auth, DatoLogin.email, DatoLogin.password)
         navigate("/home")
     } catch (error) {
-
+        console.log(error.code)
         if (error.code === "auth/wrong-password") {
             setError("correo o contraseña incorrectos")
         }
@@ -24,6 +24,9 @@ export default async function loginService(DatoLogin,setError,navigate) {
         }
         if (error.code === "auth/network-request-failed") {
             setError("No tienes acceso a internet")
+        }
+        if (error.code === "auth/internal-error") {
+            setError("Debe ingresar ambos campos")
         }
         if (error.message === "Firebase: Error (auth/unauthorized-domain).") {
             setError("No tiene acceso desde este dominio.")

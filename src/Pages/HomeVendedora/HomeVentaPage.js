@@ -17,6 +17,7 @@ export default function HomeVentaPage() {
                     <NavList />
                     <button className="buton-header" onClick={logout}>Salir</button>
                 </div>
+                
             </header>
             <Outlet />
         </>

@@ -6,10 +6,10 @@ export default function resetPasswordService(email, setError) {
     try {
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                setError("se envio un correo para realizar el cambio de contraseña")
+                setError("Se envió un correo para realizar el cambio de contraseña")
             })
             .catch((error) => {
-                console.log(error.code);
+                
                 if (error.code === "auth/user-not-found") {
                     setError("El correo no pertenece a un usuario")
                 }
@@ -20,7 +20,7 @@ export default function resetPasswordService(email, setError) {
                     setError("No tienes acceso a internet")
                 }
                 if (error.code === "auth/invalid-email") {
-                    setError("El correo no tiene un formato valido")
+                    setError("El correo debe tener un formato válido")
                 }
                 if (error.code === "auth/quota-exceeded") {
                     setError("Informar a dueño de lsitio web")
