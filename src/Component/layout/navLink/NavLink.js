@@ -10,8 +10,8 @@ export default function NavList() {
       <ul className="contenedorOpciones">
         <li className="opciones">
           <NavLink
-            to="./"
-            className={path === "/home/" || path === "/home" ? "NavActive" : "NavInactivo"}
+            to="./inicio"
+            className={path === "/home/inicio" ? "NavActive" : "NavInactivo"}
           >
             Home
           </NavLink>

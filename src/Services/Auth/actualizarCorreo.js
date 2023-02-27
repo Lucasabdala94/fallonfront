@@ -4,7 +4,6 @@ import { auth } from "../../firebase";
 export default async function actualizarCorreo(DatoResetCorreo, setError) {
     
     setError("");
-
     await updateEmail(auth.currentUser, DatoResetCorreo).then(() => {
         setError("Correo electronico actualizado")
     }).catch((error) => {

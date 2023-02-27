@@ -11,15 +11,19 @@ export default function Profile() {
     const { user } = useAuth()
     const [correo,setCorreo]= useState("")
     const [userName,setUserName]=useState("")
-    
+
     const handleSubmitCorreo = async (e) => {
         e.preventDefault();
+        if(correo.trim()==="") return setError("Debe ingresar un correo");
+        if(correo.trim()===user.email) return setError("Debe ingresar un correo distinto al registrado");
         await actualizarCorreo(correo,setError)
         setCorreo("")
     }
     const handleSubmitUsername = async (e) => {
         e.preventDefault();
-        await actualizarUsername(userName,setError2)
+        if(userName.trim()==="") return setError2("Debe ingresar un Nombre de Usuario");
+        if(userName.trim()===user.displayName) return setError2("Nombre ya registrado");
+        await actualizarUsername(userName.trim(),setError2)
         setUserName("");
     }
     

@@ -17,6 +17,8 @@ import Profile from "./Pages/HomeVendedora/layoutHome/Profile";
 
 import LoginProtected from './Component/Routing/LoginProtectedRoute';
 import LogedMultipleProtected from './Component/Routing/LogedMultipleProtected';
+import Favorito from './Pages/HomeVendedora/layoutHome/Favorito';
+import Home from './Pages/HomeVendedora/layoutHome/Home';
 
 function App() {
   return (
@@ -29,13 +31,13 @@ function App() {
             <Route path='compras' element={<Compras/>}/>
             <Route path='oferta' element={<Oferta/>}/>
             <Route path='profile' element={<Profile/>}/>
+            <Route path='favoritos' element={<Favorito/>}/>
+            <Route path='inicio' element={<Home/>}/>
           </Route>
           <Route path='/admin' element={<HomeAdminPage />} >
             <Route path="registro" element={<RegistroPage />} />
           </Route>
-
         </Routes>
-
       </div>
     </AuthProvider>
 
