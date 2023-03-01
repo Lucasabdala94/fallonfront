@@ -25,7 +25,6 @@ export default function Home() {
                 products?.map((product) => {
                     return (
                         <div key={product.attributes.nombre} className="contenedor-producto" >
-                            <h4>{product.attributes.nombre}</h4>
                             {products &&
                                 <ImgProduct attributes={product} />
                             }
