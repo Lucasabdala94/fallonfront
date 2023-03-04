@@ -1,0 +1,46 @@
+.containerStyle{
+    width: 250px;
+    height: 250px;
+    margin: 10px auto 30px;  
+}
+/* estilo para agregar flechas. */
+.sliderContainControl{
+    height: 100%;
+    position: relative;
+}
+/* estilo flecha derechas */
+.leftArrowStyle{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    right: 0px;
+    font-size: 15px;
+    color: #000000;
+    z-index: 1;
+    cursor: pointer;
+    padding: 80px 0px 80px 25px;
+}
+
+/* estilo flecha izquierda */
+.rightArrowStyle{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    left: 0px;
+    font-size: 15px;
+    color: #000000;
+    z-index: 1;
+    cursor: pointer;
+    padding: 80px 25px 80px 0;
+}
+/* estilos del contenedor de puntos puntos (dots). */
+.dotsContainerStyles{
+    display: flex;
+    justify-content: center;
+}
+/* estilos de los puntos. */
+.dotStyles{
+    margin: 0px 3px 10px;
+    cursor: pointer;
+    font-size: 20px;
+}

@@ -1,8 +1,10 @@
 import React,{useState} from "react"
 
-export default function ImgProduct(props) {
+import CarrouselProduct from "./CarrouselProduct";
+import "./Product.css";
+
+export default function Product(props) {
     const { attributes } = props;
-    const imgs = attributes?.attributes?.imagen?.data;
     const product = attributes?.attributes;
 
     const [cantidad,setCantidad]= useState("");
@@ -22,9 +24,9 @@ export default function ImgProduct(props) {
 
     return (
         <>
-            <div className="product-img-cont">
-                <h4>{product.nombre}</h4>
-                <img className="product-img" src={(imgs[0] !== null) ? imgs[0].attributes.url : "casa"} alt={attributes?.attributes.nombre} />
+            <div className="product-cont">
+                <h4 className="product-title">{product.nombre}</h4>
+                <CarrouselProduct attributes={attributes} />
                 <p>{product.descripciopnCorta}</p>
                 <div style={{
                     background: product.tono,

@@ -1,4 +1,6 @@
 .home-contenedor{
     width: 85vw;
     margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
 }

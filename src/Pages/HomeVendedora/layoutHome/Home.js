@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 
 import traerProductos from "../../../Services/Home/traerProductos";
-import ImgProduct from "../../../Component/layout/product/ImgProcut";
+import Product from "../../../Component/layout/product/Product";
 
 
 export default function Home() {
@@ -20,13 +20,13 @@ export default function Home() {
 
     return (
         <div className="home-contenedor">
-            <h1>Productos</h1>
+            
             {products &&
                 products?.map((product) => {
                     return (
                         <div key={product.attributes.nombre} className="contenedor-producto" >
                             {products &&
-                                <ImgProduct attributes={product} />
+                                <Product attributes={product} />
                             }
                         </div>
                     )
