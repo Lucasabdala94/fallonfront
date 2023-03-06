@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { AiOutlineLeft, AiOutlineRight, AiTwotoneCrown } from 'react-icons/ai';
+import { AiFillCaretLeft, AiFillCaretRight} from 'react-icons/ai';
+import {BiRadioCircleMarked} from "react-icons/bi";
 import "./CarrouselProduct.css"
 
 export default function CarrouselProduct(props) {
@@ -41,10 +42,10 @@ export default function CarrouselProduct(props) {
             <div className="containerStyle">
                 <div className="sliderContainControl">
                     <div className="leftArrowStyle" onClick={gotoNext}>
-                        <AiOutlineRight />
+                        <AiFillCaretRight />
                     </div>
                     <div className="rightArrowStyle" onClick={gotoPrevius}>
-                        <AiOutlineLeft />
+                        <AiFillCaretLeft />
                     </div>
                     <div style={slidesStyles}></div>
                 </div>
@@ -55,7 +56,7 @@ export default function CarrouselProduct(props) {
                             className="dotStyles"
                             onClick={() => goToSlide(slideIndex)}
                         >
-                            <AiTwotoneCrown />
+                            <BiRadioCircleMarked />
                         </div>
                     ))}
                 </div>

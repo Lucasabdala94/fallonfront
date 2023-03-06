@@ -1,6 +1,8 @@
 .product-cont{
     width: 350px;
-    padding: 10px px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    background-color: rgb(199 15 15 / 46%);
 }
 .product-title{
     text-align: center;

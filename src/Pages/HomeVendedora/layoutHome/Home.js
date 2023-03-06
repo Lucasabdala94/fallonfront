@@ -20,8 +20,8 @@ export default function Home() {
 
     return (
         <div className="home-contenedor">
-            
-            {products &&
+
+            {products ?
                 products?.map((product) => {
                     return (
                         <div key={product.attributes.nombre} className="contenedor-producto" >
@@ -31,7 +31,16 @@ export default function Home() {
                         </div>
                     )
 
-                })
+                }) :
+
+                <div className="load-wrapp">
+                    <div className="load-9">
+                        <div className="spinner">
+                            <div className="bubble-1"></div>
+                            <div className="bubble-2"></div>
+                        </div>
+                    </div>
+                </div>
             }
 
         </div>
