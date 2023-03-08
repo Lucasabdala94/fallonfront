@@ -39,6 +39,7 @@ export default function Home() {
                             <div className="bubble-1"></div>
                             <div className="bubble-2"></div>
                         </div>
+                        <div className="spinner-text">Cargando...</div>
                     </div>
                 </div>
             }
