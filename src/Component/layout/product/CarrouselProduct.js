@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { AiFillCaretLeft, AiFillCaretRight} from 'react-icons/ai';
-import {BiRadioCircleMarked} from "react-icons/bi";
+import { AiFillCaretLeft, AiFillCaretRight, AiOutlineExpand, AiFillCloseCircle } from 'react-icons/ai';
+import { BiRadioCircleMarked } from "react-icons/bi";
 import "./CarrouselProduct.css"
+import useModal from "../../../hooks/useModal";
+import Modal from "../../modal/Modal";
 
 export default function CarrouselProduct(props) {
 
     const { attributes } = props;
     const slides = attributes?.attributes?.imagen?.data;
-    
+
     const [indexImagen, setIndexImagen] = useState(0);
 
+    const [isOpenModal, openModal, closeModal] = useModal(false);
 
-    
     //estilos de las imagenes.
     const slidesStyles = {
         width: '100%',
@@ -41,12 +43,17 @@ export default function CarrouselProduct(props) {
         <>
             <div className="containerStyle">
                 <div className="sliderContainControl">
-                    <div className="leftArrowStyle" onClick={gotoNext}>
-                        <AiFillCaretRight />
-                    </div>
-                    <div className="rightArrowStyle" onClick={gotoPrevius}>
-                        <AiFillCaretLeft />
-                    </div>
+                    {(slides?.length !== 1) &&
+                        <>
+                            <div className="leftArrowStyle" onClick={gotoNext}>
+                                <AiFillCaretRight />
+                            </div>
+                            <div className="rightArrowStyle" onClick={gotoPrevius}>
+                                <AiFillCaretLeft />
+                            </div>
+                        </>
+                    }
+                    <div className="fullscreen" onClick={openModal}><AiOutlineExpand /></div>
                     <div style={slidesStyles}></div>
                 </div>
                 <div className="dotsContainerStyles">
@@ -61,6 +68,25 @@ export default function CarrouselProduct(props) {
                     ))}
                 </div>
             </div>
+            <Modal isOpen={isOpenModal} closeModal={closeModal} >
+
+                <div className="Modal_containerStyle">
+                    <div className="Modal_sliderContainControl">
+                        {(slides?.length !== 1) &&
+                            <>
+                                <div className="leftArrowStyle" onClick={gotoNext}>
+                                    <AiFillCaretRight />
+                                </div>
+                                <div className="rightArrowStyle" onClick={gotoPrevius}>
+                                    <AiFillCaretLeft />
+                                </div>
+                            </>
+                        }
+                        <div className="fullscreen" onClick={closeModal}><AiFillCloseCircle /></div>
+                        <div style={slidesStyles} onClick={openModal}></div>
+                    </div>
+                </div>
+            </Modal>
 
 
         </>

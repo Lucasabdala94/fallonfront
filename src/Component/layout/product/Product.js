@@ -1,7 +1,9 @@
 import React, { useState } from "react"
-
+import { TiShoppingCart } from "react-icons/ti"
 import CarrouselProduct from "./CarrouselProduct";
 import "./Product.css";
+import Modal from "../../modal/Modal";
+import useModal from "../../../hooks/useModal";
 
 export default function Product(props) {
     const { attributes } = props;
@@ -10,12 +12,26 @@ export default function Product(props) {
     const [cantidad, setCantidad] = useState("");
     const [error, setError] = useState(null);
 
+    const [isOpenModal1, openModal1, closeModal1] = useModal(false);
+
+    
     const handleSubmitCantidad = (e) => {
         e.preventDefault();
         setError("")
-        if (parseInt(cantidad.trim() < 0)) return setError("Debe ingresar una cantidad minima");
-        if (cantidad.trim() === "") return setError("Debe ingresar una cantidad minima");
-        if (parseInt(cantidad.trim()) > product.stock) return setError("Cantidad Mayor a la disponible");
+        if (parseInt(cantidad.trim()) < 0) {
+            setError("Debe ingresar una cantidad minima");
+            return openModal1(true)
+        }
+        if (cantidad.trim() === "") {
+            setError("Debe ingresar una cantidad minima")
+            return openModal1(true);
+        }
+
+
+        if (parseInt(cantidad.trim()) > product.stock) {
+            setError("Cantidad Mayor a la disponible");
+            return openModal1(true);
+        }
     }
 
     const changeCantidad = (e) => {
@@ -27,21 +43,34 @@ export default function Product(props) {
             <div className="product-cont">
                 <h4 className="product-title">{product.nombre}</h4>
                 <CarrouselProduct attributes={attributes} />
-                <p>{product.descripciopnCorta}</p>
+                <p className="descripcionCorta">{product.descripciopnCorta}</p>
                 <div className="caracteristicas">
-                    <div style={{
-                        background: product.tono,
-                        width: "25px",
-                        height: "25px",
-                        borderRadius: "50%",
-                        border: "solid 0.3px rgb(0,0,0)",
-                    }} />
-                    <p>Stock:{product.stock}</p>
-                    <p>${product.precioCompra}</p>
+                    <div className="contenedor-stock">
+                        <p className="stock">Stock :   {product.stock}</p>
+                        <p className="stock">{product?.tonoLetra}</p>
+                    </div>
+                    
+                    {product?.tono !== null &&
+                        <div style={{
+                            background: product.tono,
+                            width: "25px",
+                            height: "25px",
+                            borderRadius: "12%",
+                            border: "solid 0.3px rgb(0,0,0)",
+                        }} />
+                    
+                    }
+                    
+                    <p className="precio">${product.precioCompra}</p>
                 </div>
-                <input value={cantidad} name="cantidad" onChange={changeCantidad} type="number" min="1" max={`${product.stock}`} step={"1"}></input>
-                <button type="submit" onClick={handleSubmitCantidad}>Agregar al carro</button>
-                {error && <p>{error}</p>}
+                <form className="form-cantidad" onSubmit={handleSubmitCantidad}>
+                    <input value={cantidad} name="cantidad" onChange={changeCantidad}></input>
+                    <button type="submit" ><TiShoppingCart /></button>
+                </form>
+
+                <Modal error={true} isOpen={isOpenModal1} closeModal={closeModal1}>
+                    <p className="errorModal">{error}</p>
+                </Modal>
             </div>
         </>
 

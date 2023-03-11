@@ -1,6 +1,6 @@
 .containerStyle{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 10px auto 30px;  
 }
 /* estilo para agregar flechas. */
@@ -18,7 +18,7 @@
     color: #000000;
     z-index: 1;
     cursor: pointer;
-    padding: 80px 0px 80px 25px;
+    padding: 50px 0px 80px 25px;
 }
 
 /* estilo flecha izquierda */
@@ -31,7 +31,15 @@
     color: #000000;
     z-index: 1;
     cursor: pointer;
-    padding: 80px 25px 80px 0;
+    padding: 50px 25px 80px 0;
+}
+.fullscreen{
+    position: absolute;
+    right: 0px;
+    font-size: 18px;
+    color: #000000;
+    padding: 5px;
+    cursor: pointer;
 }
 /* estilos del contenedor de puntos puntos (dots). */
 .dotsContainerStyles{
