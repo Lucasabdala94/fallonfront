@@ -15,10 +15,10 @@
     transform: translate(0,-50%);
     right: 0px;
     font-size: 15px;
-    color: #000000;
+    color: #000000bd;
     z-index: 1;
     cursor: pointer;
-    padding: 50px 0px 80px 25px;
+    padding: 50px 0px 50px 25px;
 }
 
 /* estilo flecha izquierda */
@@ -28,16 +28,16 @@
     transform: translate(0,-50%);
     left: 0px;
     font-size: 15px;
-    color: #000000;
+    color: #000000bd;
     z-index: 1;
     cursor: pointer;
-    padding: 50px 25px 80px 0;
+    padding: 50px 25px 50px 0;
 }
 .fullscreen{
     position: absolute;
     right: 0px;
     font-size: 18px;
-    color: #000000;
+    color: #000000bd;
     padding: 5px;
     cursor: pointer;
 }

@@ -1,0 +1,36 @@
+.container-profile{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 25px auto;
+    width: 80vw;
+    padding: 20px;
+    background-color: rgb(199 15 15 / 46%);
+    border-radius: 12px;
+}
+
+.form-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.form-profile div{
+    margin-left: 50px;
+}
+.title-profile{
+    margin-left: 10px;
+}
+.error-profile{
+    text-align:center;
+    height: 8vh;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(120, 9, 9);
+    margin-bottom: 20px;
+    border-bottom: 3px solid rgb(255,255,255);
+    
+}
+.container-profile div:last-child{
+    border: none;
+    margin-bottom: 0;
+}

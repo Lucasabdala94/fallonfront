@@ -20,7 +20,6 @@
 }
 .caracteristicas p{
     margin: 0px;
-
 }
 .descripcionCorta{
     font-size: 16px;
@@ -28,7 +27,7 @@
 }
 .precio{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 23px;
 }
 .contenedor-stock{
     display: flex;
@@ -46,24 +45,23 @@
 }
 .form-cantidad{
     display: flex;
-    justify-content:flex-end;
+    justify-content:flex-start;
     border-radius: 12px;
-    margin-right: 28px;
-    
+    margin: 20px 0px 15px 15px;
 }
 
 .form-cantidad input{
     width: 35px;
     text-align: center;
     font-size: 12px;
-    border-radius: 12px 0px 0px 12px;
     border: none;
-    border-right:1px solid black ;
+    border:1px solid rgba(36, 4, 4, 0.655) ;
 }
 .form-cantidad button{
     width: 35px;
     text-align: center;
     font-size: 20px;
     border: none;
+    border-radius: 0px 12px 12px 0px;
     
 }

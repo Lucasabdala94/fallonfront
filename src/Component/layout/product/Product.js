@@ -14,7 +14,7 @@ export default function Product(props) {
 
     const [isOpenModal1, openModal1, closeModal1] = useModal(false);
 
-    
+
     const handleSubmitCantidad = (e) => {
         e.preventDefault();
         setError("")
@@ -26,8 +26,6 @@ export default function Product(props) {
             setError("Debe ingresar una cantidad minima")
             return openModal1(true);
         }
-
-
         if (parseInt(cantidad.trim()) > product.stock) {
             setError("Cantidad Mayor a la disponible");
             return openModal1(true);
@@ -45,22 +43,31 @@ export default function Product(props) {
                 <CarrouselProduct attributes={attributes} />
                 <p className="descripcionCorta">{product.descripciopnCorta}</p>
                 <div className="caracteristicas">
-                    <div className="contenedor-stock">
-                        <p className="stock">Stock :   {product.stock}</p>
-                        <p className="stock">{product?.tonoLetra}</p>
-                    </div>
-                    
-                    {product?.tono !== null &&
-                        <div style={{
-                            background: product.tono,
-                            width: "25px",
-                            height: "25px",
-                            borderRadius: "12%",
-                            border: "solid 0.3px rgb(0,0,0)",
-                        }} />
-                    
+                    {product?.tono !== null ?
+                        <>
+                            <div className="contenedor-stock">
+                                <p className="stock">Stock :   {product.stock}</p>
+                                <p className="stock">{product?.tonoLetra}</p>
+                            </div>
+                            <div style={{
+                                background: product.tono,
+                                width: "25px",
+                                height: "25px",
+                                borderRadius: "50%",
+                                border: "solid 0.2px rgb(0,0,0)",
+                            }} />
+                        </> 
+                        :
+                        <>
+                            <div className="contenedor-stock">
+                                <p className="stock"> Stock :   {product.stock}</p>
+                            </div>
+                            <div className="contenedor-stock">
+                                <p className="stock">{product?.tonoLetra}</p>
+                            </div>
+                        
+                        </> 
                     }
-                    
                     <p className="precio">${product.precioCompra}</p>
                 </div>
                 <form className="form-cantidad" onSubmit={handleSubmitCantidad}>
