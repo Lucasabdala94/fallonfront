@@ -47,7 +47,9 @@ export default function LoginPage() {
                     <input className="form-login__input" placeholder="contraseña" onChange={handleChange} type="password" name="password"></input>
                     <button className="button-login" >Ingresar</button>
                 </form>
-                <button className="button-reset" onClick={handleResetPassword}>Olvidaste tu contraseña?</button>
+                <div className="Container-reset">
+                    <button className="button-reset" onClick={handleResetPassword}>Olvidaste tu contraseña?</button>
+                </div>
             </div>
         </div>
     )

@@ -17,7 +17,7 @@ export default function NavList() {
               to="./oferta"
               className={path === "/home/oferta" ? "NavActiveBajo" : "NavInactivoBajo"}
             >
-              ofertas
+              Ofertas
             </NavLink>
           </div>
           <div className="opcionesBajo">
@@ -25,7 +25,7 @@ export default function NavList() {
               to="./favoritos"
               className={path === "/home/favoritos" ? "NavActiveBajo" : "NavInactivoBajo"}
             >
-              favoritos
+              Favoritos
             </NavLink>
           </div>
           <div className="opcionesBajo">

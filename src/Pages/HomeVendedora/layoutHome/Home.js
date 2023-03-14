@@ -3,6 +3,7 @@ import "./Home.css";
 
 import traerProductos from "../../../Services/Home/traerProductos";
 import Product from "../../../Component/layout/product/Product";
+import Loader from "../../../Component/Loader/Loader";
 
 
 export default function Home() {
@@ -31,17 +32,7 @@ export default function Home() {
                         </div>
                     )
 
-                }) :
-
-                <div className="load-wrapp">
-                    <div className="load-9">
-                        <div className="spinner">
-                            <div className="bubble-1"></div>
-                            <div className="bubble-2"></div>
-                        </div>
-                        <div className="spinner-text">Cargando...</div>
-                    </div>
-                </div>
+                }) : <Loader/>
             }
 
         </div>

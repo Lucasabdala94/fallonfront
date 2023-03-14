@@ -2,11 +2,13 @@
     width: 200px;
     height: 200px;
     margin: 10px auto 30px;  
+    user-select:none;
 }
 /* estilo para agregar flechas. */
 .sliderContainControl{
     height: 100%;
     position: relative;
+    user-select:none;
 }
 /* estilo flecha derechas */
 .leftArrowStyle{

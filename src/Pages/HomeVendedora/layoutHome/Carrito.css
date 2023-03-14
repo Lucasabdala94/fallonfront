@@ -1,0 +1,30 @@
+.contenedor-carrito {
+    width: 60vw;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    user-select:none;
+}
+.table-cart{
+    background-color: rgb(191 44 51 / 78%);
+    border-radius: 20px 20px 0px 20px;
+    padding: 30px 0px 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select:none;
+}
+
+.text-center{
+    text-align: center;
+}
+.carrito-vacio{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(191 44 51 / 78%);
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 50px;
+    text-align: center;
+    user-select:none;
+}

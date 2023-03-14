@@ -47,3 +47,6 @@
   -moz-box-shadow: 2px 2px 2px #121212;
   
 }
+.buton-header:active{
+  transform: scale(0.98);
+}

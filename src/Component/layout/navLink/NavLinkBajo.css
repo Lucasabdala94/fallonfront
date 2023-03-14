@@ -1,23 +1,30 @@
 .NavActiveBajo{
-    color: rgb(42, 2, 23);
+    color: rgb(255,255,255);
     text-decoration: none;
-    padding-bottom:4px;
+    font-size: 16px;
+    padding-bottom:2px;
     user-select:none;
     font-weight: bold;
-    
+    margin-right: 10px;
+    letter-spacing:2px;
+    text-transform:uppercase
 }
 .NavInactivoBajo{
-    padding-bottom:2px;
     text-decoration: none;
+    padding: 10px 0px ;
+    font-size: 17px;
+    font-weight: bold;
     color: rgb(255,255,255);
     user-select:none;
+    letter-spacing:3px;
+    margin-right: 10px;
+    padding-bottom:2px;
 }
 .navegadorBajo{
     display: flex;
     margin-right: 10vw;
-    letter-spacing: 1.4px;
+    letter-spacing: 2px;
     height: 35px;
-    box-sizing: content-box;
 }
 .contenedorOpcionesBajo{
     list-style: none;
@@ -27,7 +34,7 @@
     margin-left: 10vw;
     background-color: #621111b8;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px 7px 7px 3px;
     clip-path: polygon(75% 0%, 100% 0, 90% 100%, 0% 100%, 0 50%, 0% 0%);
 }
 .opcionesBajo{

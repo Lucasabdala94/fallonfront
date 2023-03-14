@@ -1,28 +1,32 @@
 import React, { useState } from "react"
 import { TiShoppingCart } from "react-icons/ti"
+import { BiCheck,BiX } from "react-icons/bi"
 import CarrouselProduct from "./CarrouselProduct";
 import "./Product.css";
 import Modal from "../../modal/Modal";
 import useModal from "../../../hooks/useModal";
+import useCartContext from "../../../hooks/useCartContext";
 
 export default function Product(props) {
     const { attributes } = props;
     const product = attributes?.attributes;
 
-    const [cantidad, setCantidad] = useState("");
+    const {addProduct,isToCart,removeProduct,isToCantidad}= useCartContext()
+    const[id,]=useState(attributes.id);
+
+    const [cantidad, setCantidad] = useState(isToCantidad(attributes.id));
     const [error, setError] = useState(null);
 
     const [isOpenModal1, openModal1, closeModal1] = useModal(false);
 
-
     const handleSubmitCantidad = (e) => {
         e.preventDefault();
         setError("")
-        if (parseInt(cantidad.trim()) < 0) {
+        if (parseInt(cantidad.trim()) <= 0) {          
             setError("Debe ingresar una cantidad minima");
             return openModal1(true)
         }
-        if (cantidad.trim() === "") {
+        if(cantidad.trim() === "") {
             setError("Debe ingresar una cantidad minima")
             return openModal1(true);
         }
@@ -30,6 +34,13 @@ export default function Product(props) {
             setError("Cantidad Mayor a la disponible");
             return openModal1(true);
         }
+        
+        addProduct({
+                id:attributes.id,
+                tono:product.tono,
+                producto:product.nombre,
+                precio:product.precioCompra
+        },cantidad.trim())
     }
 
     const changeCantidad = (e) => {
@@ -55,12 +66,13 @@ export default function Product(props) {
                                 height: "25px",
                                 borderRadius: "50%",
                                 border: "solid 0.2px rgb(0,0,0)",
+                                userSelect:"none",
                             }} />
                         </> 
                         :
                         <>
                             <div className="contenedor-stock">
-                                <p className="stock"> Stock :   {product.stock}</p>
+                                <p className="stock"> Stock :  {product.stock}</p>
                             </div>
                             <div className="contenedor-stock">
                                 <p className="stock">{product?.tonoLetra}</p>
@@ -72,8 +84,24 @@ export default function Product(props) {
                 </div>
                 <form className="form-cantidad" onSubmit={handleSubmitCantidad}>
                     <input value={cantidad} name="cantidad" onChange={changeCantidad}></input>
-                    <button type="submit" ><TiShoppingCart /></button>
+                    {isToCart(attributes.id)===false ?
+                        <button type="submit" ><TiShoppingCart/></button>
+                        :
+                        <>
+                        <button type="submit" ><BiCheck className="green"/></button>
+                        <div onClick={()=>{
+                            removeProduct(id)
+                            setCantidad("")
+                        }
+                        }>
+                            <BiX className="remove-product"/>
+                        </div>
+                        </>
+
+                    }
+                    
                 </form>
+                
 
                 <Modal error={true} isOpen={isOpenModal1} closeModal={closeModal1}>
                     <p className="errorModal">{error}</p>
