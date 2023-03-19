@@ -9,7 +9,7 @@
 }
 .logoOferta{
     position: absolute;
-    transform: rotate(-24deg);
+    transform: rotate(-21deg);
     left:7px;
     top: 35px;
     z-index: 5000;

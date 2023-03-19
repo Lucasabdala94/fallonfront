@@ -45,6 +45,10 @@ export function CartProvider({ children }) {
             return false
         }
     }
+    /* Devuelve si esta el producto en oferta o no */
+    const isOffert =(attributes)=>{
+            return (attributes?.attributes?.oferta === null|| attributes?.attributes?.oferta===false) ? false : true
+    }
 
     /*Devuelve la cantidad de un determinado producto en el carro */
     const isToCantidad=(id)=>{
@@ -98,6 +102,7 @@ export function CartProvider({ children }) {
                     removeProduct,
                     addProduct,
                     isToCantidad,
+                    isOffert,
                 }}
             >
                 {children}
