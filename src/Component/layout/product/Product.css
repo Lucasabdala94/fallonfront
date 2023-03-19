@@ -5,6 +5,18 @@
     margin: 10px;
     border-radius: 12px;
     background-color: rgb(199 15 15 / 46%);
+    position: relative;
+}
+.logoOferta{
+    position: absolute;
+    transform: rotate(-24deg);
+    left:7px;
+    top: 35px;
+    z-index: 5000;
+}
+.logoOferta-img{
+    width: 55px;
+    height: 55px;
 }
 
 .product-title {

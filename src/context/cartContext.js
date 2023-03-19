@@ -4,31 +4,27 @@ export const cartContext = createContext([]);
 
 export function CartProvider({ children }) {
     
-
-    const [cart, sertCart] = useState([]);
-
+    const [cart, setCart] = useState([]);
     
     useEffect(() => {
         const carrito= JSON.parse(localStorage.getItem("carritoFallon"));
-        sertCart(carrito)
+        setCart(carrito)
     },[])
 
     useEffect(()=>{
 
     },[cart])
 
-    
-
     const addProduct = (item,newQuantity)=>{
         if(cart !== null){
             const newCart = cart?.filter(prod=>prod.item.id!==item.id);
             newCart.push({item,quantity:newQuantity});
-            sertCart(newCart);
+            setCart(newCart);
             localStorage.setItem("carritoFallon", JSON.stringify(newCart));
         }else{
             let cart=[];
             cart.push({item,quantity:newQuantity})
-            sertCart(cart);
+            setCart(cart);
             localStorage.setItem("carritoFallon", JSON.stringify(cart));
         }
         
@@ -37,7 +33,7 @@ export function CartProvider({ children }) {
 
 
     const clearCart = () =>{
-        sertCart(null)
+        setCart(null)
         localStorage.removeItem("carritoFallon");
     };
 
@@ -71,16 +67,23 @@ export function CartProvider({ children }) {
         }
     }
 
-
-
+    const sumarCarrito= ()=>{
+        let total =0;
+        if(cart!==null){
+            cart?.filter( product=> total += parseInt(product.item.precio)*parseInt(product.quantity)
+            )
+            return total
+        }
+        return total
+    }
     const removeProduct = (id) =>{ 
         const newCart=cart.filter(product => product.item.id !== id)
         if(newCart.length===0){
-            sertCart(null)
+            setCart(null)
             localStorage.removeItem("carritoFallon");
         }else{
             localStorage.setItem("carritoFallon", JSON.stringify(newCart));
-            sertCart(newCart)
+            setCart(newCart)
         }
         
     };
@@ -89,11 +92,12 @@ export function CartProvider({ children }) {
             <cartContext.Provider
                 value={{
                     cart,
+                    sumarCarrito,
                     clearCart,
                     isToCart,
                     removeProduct,
                     addProduct,
-                    isToCantidad
+                    isToCantidad,
                 }}
             >
                 {children}

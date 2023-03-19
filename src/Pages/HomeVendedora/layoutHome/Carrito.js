@@ -1,22 +1,19 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import "./Carrito.css";
 import { BiX } from "react-icons/bi";
 import useCartContext from "../../../hooks/useCartContext";
 
 export default function Carrito() {
 
-    const { cart,clearCart,removeProduct } = useCartContext();
+    const { cart, clearCart, removeProduct, sumarCarrito } = useCartContext();
 
-    const deleteCart = ()=>{
+    const deleteCart = () => {
         clearCart();
     }
-    /* const removeItem=()=>{
-        removeProduct();
-    } */
 
-    useEffect(()=>{
-            
-    },[cart])
+    useEffect(() => {
+
+    }, [cart])
 
     return (
         <div className="contenedor-carrito">
@@ -24,30 +21,35 @@ export default function Carrito() {
             {cart ?
                 <>
                     <table className="table-cart">
-                        <thead>
+                        <thead >
                             <tr>
                                 <th>Cantidad</th>
                                 <th>Productos</th>
-                                <th>Precio</th>
-                                <th>------</th>
+                                <th>Precio u.</th>
+                                <th>Subtotal</th>
+                                <th>Quitar</th>
                             </tr>
                         </thead>
                         <tbody>
                             {cart?.map((product) => {
                                 return (
-                                    <tr key={product.item.id}>
-                                        <td className="text-center" >
+                                    <tr className="text-center"  key={product.item.id}>
+                                        <td>
                                             {product.quantity}
                                         </td>
                                         <td >
                                             {product.item.producto}
                                         </td>
-                                        <td className="text-center" >
+                                        <td>
                                             {product.item.precio}
                                         </td>
-                                        <td className="text-center">
-                                            <button 
-                                                onClick={()=>removeProduct(product.item.id)}  
+                                        <td>
+                                            {parseInt(product.item.precio)*parseInt(product.quantity)}
+                                        </td>
+                                        <td>
+                                            <button
+                                                className="button-removeProduct"
+                                                onClick={() => removeProduct(product.item.id)}
                                             >
                                                 <BiX />
                                             </button>
@@ -55,14 +57,18 @@ export default function Carrito() {
                                     </tr>
                                 )
                             }
+
                             )}
                         </tbody>
                     </table>
-                    <div><button onClick={deleteCart}>Limpiar carro</button></div>
+
+                    <div className="cont-totalPagar"><p className="totalPagar"> Total $ {sumarCarrito()}</p></div>
+
+                    <div><button className="button-login " onClick={deleteCart}>Limpiar carro</button></div>
                 </>
                 :
                 <div className="carrito-vacio" >
-                    No hay productos en el carrito
+                    No Hay Productos en el Carrito
                 </div>
 
             }

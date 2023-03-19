@@ -22,6 +22,11 @@ export default function Product(props) {
     const handleSubmitCantidad = (e) => {
         e.preventDefault();
         setError("")
+        if(typeof(parseInt(cantidad.trim())) !== "number"){
+            setError("Debe ingresar un numero entero como Cantidad")
+            setCantidad("")
+            return openModal1(true)
+        }
         if (parseInt(cantidad.trim()) <= 0) {          
             setError("Debe ingresar una cantidad minima");
             return openModal1(true)
@@ -50,6 +55,9 @@ export default function Product(props) {
     return (
         <>
             <div className="product-cont">
+                <picture className="logoOferta">
+                    <img className="logoOferta-img" src={require("./../../../assets/oferta.png")} alt="logo oferta"/>
+                </picture>
                 <h4 className="product-title">{product.nombre}</h4>
                 <CarrouselProduct attributes={attributes} />
                 <p className="descripcionCorta">{product.descripciopnCorta}</p>
