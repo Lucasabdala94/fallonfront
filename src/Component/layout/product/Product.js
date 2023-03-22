@@ -61,7 +61,7 @@ export default function Product(props) {
                         <img className="logoOferta-img" src={require("./../../../assets/oferta.png")} alt="logo oferta" />
                     </picture>
                 }
-                <h4 className="product-title">{product.nombre}</h4>
+                <h4 className="producttitle">{product.nombre}</h4>
                 <CarrouselProduct attributes={attributes} />
                 <p className="descripcionCorta">{product.descripciopnCorta}</p>
                 <div className="caracteristicas">

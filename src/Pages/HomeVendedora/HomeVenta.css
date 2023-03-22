@@ -5,7 +5,7 @@
   box-shadow: 2px 2px 5px #121212;
   -webkit-box-shadow: 2px 2px 5px #121212;
   -moz-box-shadow: 2px 2px 5px #121212;
-  user-select:none;
+  user-select: none;
 }
 
 .header-contenedor {
@@ -33,20 +33,57 @@
 }
 
 .buton-header {
+  position: absolute;
+  right: 10vw;
+  top: 15px;
   border-radius: 10px;
   padding: 4px;
-  margin-bottom: 70px;
   border: none;
   color: rgba(0, 0, 0, 0.806);
   background: rgb(255, 253, 254);
   font-weight: bold;
   letter-spacing: 2px;
-  font-size: 10px;
+  font-size: 12px;
   box-shadow: 2px 2px 2px #121212;
   -webkit-box-shadow: 2px 2px 2px #121212;
   -moz-box-shadow: 2px 2px 2px #121212;
-  
+
 }
-.buton-header:active{
+
+.buton-header:active {
   transform: scale(0.98);
+}
+
+.boton-carrito {
+  width: auto;
+  height: 30px;
+  min-width: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position:fixed;
+  right: 15vw;
+  z-index: 3500;
+  top: 100px;
+  border-radius: 20px;
+  padding: 10px;
+  border-style: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 0px 111px 45px rgba(194, 14, 14, 1);
+  -moz-box-shadow: 0px 0px 111px 45px rgba(194, 14, 14, 1);
+  box-shadow: 0px 0px 5px 4px rgba(194, 14, 14, 1);
+}
+
+.boton-carrito:active {
+  transform: scale(0.98);
+}
+
+.boton-carrito p,
+.boton-carrito svg {
+  padding-left: 10px;
+}
+
+.boton-carrito svg {
+  font-size: 20px;
 }

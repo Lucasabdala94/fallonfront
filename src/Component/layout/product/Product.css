@@ -9,22 +9,22 @@
 }
 .logoOferta{
     position: absolute;
-    transform: rotate(-21deg);
-    left:7px;
+    
+    left:-15px;
     top: 35px;
     z-index: 5000;
 }
 .logoOferta-img{
-    width: 55px;
-    height: 55px;
+    width: 100px;
+    height: 100px;
 }
 
-.product-title {
+.producttitle {
     text-align: center;
     margin: 3px;
     font-size: 18px;
     letter-spacing: 2px;
-    user-select:none;
+    user-select:none;  
 }
 
 .caracteristicas {

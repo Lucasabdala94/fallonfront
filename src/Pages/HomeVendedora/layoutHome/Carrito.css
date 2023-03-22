@@ -44,26 +44,14 @@
     font-size: 17px;
     width: 20vw;
     margin: 0px 0px 0px auto;
-    border-radius: 0px 0px 20px;
+    border-radius: 0px 0px 20px 20px;
     position: relative;
     height: 40px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     border: none;
     border-top:2px solid rgb(0,0,0) ;
 }
-.cont-totalPagar::before{
-    content:'';
-    position: absolute;
-    left: -49.4px;
-    top: -2px;
-    box-sizing: border-box;
-    width: 50px;
-    height:42px;
-    background-color: inherit;
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-    border-top: 2px solid rgb(0,0,0);
 
-}
 .totalPagar{
     margin: 10px 25px;
 }

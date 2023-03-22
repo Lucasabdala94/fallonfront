@@ -62,7 +62,7 @@ export default function Carrito() {
                         </tbody>
                     </table>
 
-                    <div className="cont-totalPagar"><p className="totalPagar"> Total $ {sumarCarrito()}</p></div>
+                    <div className="cont-totalPagar"><p className="totalPagar"> Total ${sumarCarrito()}</p></div>
 
                     <div><button className="button-login " onClick={deleteCart}>Limpiar carro</button></div>
                 </>
