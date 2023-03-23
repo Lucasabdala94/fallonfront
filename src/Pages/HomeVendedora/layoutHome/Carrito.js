@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Carrito.css";
 import { BiX } from "react-icons/bi";
 import useCartContext from "../../../hooks/useCartContext";
+import BotonCompra from "../../../Component/layout/BotonCompra/BotonCompra";
 
 export default function Carrito() {
 
@@ -65,6 +66,7 @@ export default function Carrito() {
                     <div className="cont-totalPagar"><p className="totalPagar"> Total ${sumarCarrito()}</p></div>
 
                     <div><button className="button-login " onClick={deleteCart}>Limpiar carro</button></div>
+                    <BotonCompra />
                 </>
                 :
                 <div className="carrito-vacio" >
