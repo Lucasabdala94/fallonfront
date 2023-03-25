@@ -1,95 +1,104 @@
-import React, { createContext, useEffect, useState} from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const cartContext = createContext([]);
 
 export function CartProvider({ children }) {
-    
+
     const [cart, setCart] = useState([]);
-    
+
     useEffect(() => {
-        const carrito= JSON.parse(localStorage.getItem("carritoFallon"));
+        const carrito = JSON.parse(localStorage.getItem("carritoFallon"));
         setCart(carrito)
-    },[])
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[cart])
+    }, [cart])
 
-    const addProduct = (item,newQuantity)=>{
-        if(cart !== null){
-            const newCart = cart?.filter(prod=>prod.item.id!==item.id);
-            newCart.push({item,quantity:newQuantity});
+    const addProduct = (item, newQuantity) => {
+        if (cart !== null) {
+            const newCart = cart?.filter(prod => prod.item.id !== item.id);
+            newCart.push({ item, quantity: newQuantity });
             setCart(newCart);
             localStorage.setItem("carritoFallon", JSON.stringify(newCart));
-        }else{
-            let cart=[];
-            cart.push({item,quantity:newQuantity})
+        } else {
+            let cart = [];
+            cart.push({ item, quantity: newQuantity })
             setCart(cart);
             localStorage.setItem("carritoFallon", JSON.stringify(cart));
         }
-        
+
 
     }
 
 
-    const clearCart = () =>{
+    const clearCart = () => {
         setCart(null)
         localStorage.removeItem("carritoFallon");
     };
 
     /* devuelve si esta  o no en el carrito un true o false */
     const isToCart = (id) => {
-        if(cart!==null){
+        if (cart !== null) {
             return cart.find(product => product.item.id === id) ? true : false;
-        }else{
+        } else {
             return false
         }
     }
     /* Devuelve si esta el producto en oferta o no */
-    const isOffert =(attributes)=>{
-            return (attributes?.attributes?.oferta === null|| attributes?.attributes?.oferta===false) ? false : true
+    const isOffert = (attributes) => {
+        return (attributes?.attributes?.oferta === null || attributes?.attributes?.oferta === false) ? false : true
     }
 
     /*Devuelve la cantidad de un determinado producto en el carro */
-    const isToCantidad=(id)=>{
-        if(cart!==null){
-            let newCart=[];
+    const isToCantidad = (id, producto) => {
+
+        if (cart !== null) {
+            let newCart = [];
             cart.filter(product => {
-                if(product.item.id === id){
-                    return newCart.push(product);
+                if (product.item.id === id) {
+                    if (parseInt(producto?.stock) >= parseInt(product?.quantity)){
+                        return newCart.push(product?.quantity);
+                    }else if(parseInt(producto?.stock)=== 0){
+                        removeProduct(product.item.id )
+                        return null
+                    }else{
+                        addProduct(product?.item,producto?.stock)
+                        return newCart.push(producto?.stock)
+                    }
                 }
-                return null               
+                return null
             });
 
-            if(newCart.length!==0){
-                return `${newCart[0]?.quantity}`
-            }else{
+            if (newCart.length !== 0) {
+                return `${newCart[0]}`
+            } else {
                 return ""
             }
-        }else{
+        } else {
             return ""
         }
     }
 
-    const sumarCarrito= ()=>{
-        let total =0;
-        if(cart!==null){
-            cart?.filter( product=> total += parseInt(product.item.precio)*parseInt(product.quantity)
+    const sumarCarrito = () => {
+        let total = 0;
+        if (cart !== null) {
+            cart?.filter(product => total += parseInt(product.item.precio) * parseInt(product.quantity)
             )
             return total
         }
         return total
     }
-    const removeProduct = (id) =>{ 
-        const newCart=cart.filter(product => product.item.id !== id)
-        if(newCart.length===0){
+    const removeProduct = (id) => {
+        const newCart = cart.filter(product => product.item.id !== id)
+        if (newCart.length === 0) {
             setCart(null)
             localStorage.removeItem("carritoFallon");
-        }else{
+        } else {
             localStorage.setItem("carritoFallon", JSON.stringify(newCart));
             setCart(newCart)
         }
-        
+
     };
     return (
         <>

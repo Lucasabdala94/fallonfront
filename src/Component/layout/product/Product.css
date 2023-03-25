@@ -25,6 +25,7 @@
     font-size: 18px;
     letter-spacing: 2px;
     user-select:none;  
+    text-transform: capitalize;
 }
 
 .caracteristicas {
@@ -59,6 +60,7 @@
 
 .stock {
     font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .errorModal {

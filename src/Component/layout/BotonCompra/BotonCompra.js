@@ -4,7 +4,7 @@ import useModal from "../../../hooks/useModal";
 import Loader from "../../Loader/Loader";
 import traerProductos from "../../../Services/Home/traerProductos";
 import Modal from "../../modal/Modal";
-/* import enviarPedido from "../../../Services/Home/carrito/enviarPedido"; */
+import enviarPedido from "../../../Services/Home/carrito/enviarPedido"
 
 export default function BotonCompra() {
     const [loaders, setLoaders] = useState(false);
@@ -38,7 +38,9 @@ export default function BotonCompra() {
                 let productoAnalizar = data.find((dataProduct) => `${Element.idCart}` === `${dataProduct.id}`);
                 if (parseInt(Element.cantCart) <= parseInt(productoAnalizar.stock)) {
                     return Element
-                } else {
+                }else if(parseInt(productoAnalizar.stock)===0){
+                    return null;
+                }else {
                     setFaltante(...faltante,"nuevo faltante")
                     return productoAnalizar
                 }
@@ -46,12 +48,12 @@ export default function BotonCompra() {
 
         )
 
-        /* const envioPedido=enviarPedido(cartFinal); */
+        const envioPedido= await enviarPedido(cartFinal);
 
-        
 
+            
         await openModal1(true)
-        setTimeout(clearCart, 1000);
+        setTimeout(clearCart, 1200);
         setLoaders(false)
     }
 

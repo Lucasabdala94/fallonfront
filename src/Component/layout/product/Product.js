@@ -14,7 +14,7 @@ export default function Product(props) {
     const { addProduct, isToCart, removeProduct, isToCantidad, isOffert } = useCartContext()
     const [id,] = useState(attributes.id);
 
-    const [cantidad, setCantidad] = useState(isToCantidad(attributes.id));
+    const [cantidad, setCantidad] = useState(isToCantidad(attributes?.id,product));
     const [error, setError] = useState(null);
 
     const [isOpenModal1, openModal1, closeModal1] = useModal(false);
@@ -46,6 +46,7 @@ export default function Product(props) {
             producto: product.nombre,
             precio: product.precioCompra,
             offert: product.oferta,
+            tonoLetra: product.tonoLetra,
         }, cantidad.trim())
     }
 
@@ -68,7 +69,7 @@ export default function Product(props) {
                     {product?.tono !== null ?
                         <>
                             <div className="contenedor-stock">
-                                <p className="stock">Stock :   {product.stock}</p>
+                                <p className="stock">{parseInt(product.stock)!==0 ? `Stock :  ${product.stock}` : "------"}</p>
                                 <p className="stock">{product?.tonoLetra}</p>
                             </div>
                             <div style={{
@@ -83,7 +84,7 @@ export default function Product(props) {
                         :
                         <>
                             <div className="contenedor-stock">
-                                <p className="stock"> Stock :  {product.stock}</p>
+                                <p className="stock">{parseInt(product.stock)!==0 ? `Stock :  ${product.stock}` : "------"}</p>
                             </div>
                             <div className="contenedor-stock">
                                 <p className="stock">{product?.tonoLetra}</p>
@@ -94,25 +95,34 @@ export default function Product(props) {
                     <p className="precio">${product.precioCompra}</p>
                 </div>
                 <form className="form-cantidad" onSubmit={handleSubmitCantidad}>
-                    <input value={cantidad} name="cantidad" onChange={changeCantidad}></input>
-                    {isToCart(attributes.id) === false ?
-                        <button type="submit" ><TiShoppingCart /></button>
+                    
+                    {parseInt(product.stock)!==0 ?
+                        isToCart(attributes.id) === false ?
+                            <>
+                            <input value={cantidad} name="cantidad" onChange={changeCantidad}></input>
+                            <button type="submit" ><TiShoppingCart /></button>
+                            </>
+                            :
+                            <>
+                                <input value={cantidad} name="cantidad" onChange={changeCantidad}></input>
+                                <button type="submit" ><BiCheck className="green" /></button>
+                                <div onClick={() => {
+                                    removeProduct(id)
+                                    setCantidad("")
+                                }
+                                }>
+                                    <BiX className="remove-product" />
+                                </div>
+                            </>
+    
+                        
                         :
-                        <>
-                            <button type="submit" ><BiCheck className="green" /></button>
-                            <div onClick={() => {
-                                removeProduct(id)
-                                setCantidad("")
-                            }
-                            }>
-                                <BiX className="remove-product" />
-                            </div>
-                        </>
-
+                        <div>Sin Stock</div>
+                    
+                    
                     }
-
+                    
                 </form>
-
 
                 <Modal error={true} isOpen={isOpenModal1} closeModal={closeModal1}>
                     <p className="errorModal">{error}</p>

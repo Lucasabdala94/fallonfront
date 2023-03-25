@@ -6,11 +6,13 @@ import NavList from "../../Component/layout/navLink/NavLink";
 import NavListBajo from "../../Component/layout/navLink/NavLinkBajo";
 import "./HomeVenta.css"
 
+
 export default function HomeVentaPage() {
     const { logout } = useAuth();
 
     const { sumarCarrito } = useCartContext();
     const path = useResolvedPath().pathname;
+
 
     return (
         <>
