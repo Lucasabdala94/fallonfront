@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-import traerProductos from "../../../Services/Home/traerProductos";
 import Product from "../../../Component/layout/product/Product";
+import traerProductos from "../../../Services/Home/traerProductos";
 
 export default function Oferta (){
     
@@ -14,7 +13,6 @@ export default function Oferta (){
             setProducts(data || null)
         })()
     }, [])
-
     return (
         <div className="home-contenedor">
 

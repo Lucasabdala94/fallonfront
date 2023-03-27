@@ -27,8 +27,6 @@ export function CartProvider({ children }) {
             setCart(cart);
             localStorage.setItem("carritoFallon", JSON.stringify(cart));
         }
-
-
     }
 
 
@@ -79,7 +77,20 @@ export function CartProvider({ children }) {
             return ""
         }
     }
+    /* suma cualquier carro */
+    const sumarCarritos=(carrito)=>{
+        let total = 0;
+        if(carrito !== null){
+            carrito.filter( product => total +=parseInt(product.precio) * parseInt(product.cant)
+                
+            )
+            return total
+        }
+        return total
+    }
 
+
+    /* suma el carrito que se encuentra en el contexto */
     const sumarCarrito = () => {
         let total = 0;
         if (cart !== null) {
@@ -106,6 +117,7 @@ export function CartProvider({ children }) {
                 value={{
                     cart,
                     sumarCarrito,
+                    sumarCarritos,
                     clearCart,
                     isToCart,
                     removeProduct,
