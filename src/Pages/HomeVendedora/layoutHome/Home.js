@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-
 import traerProductos from "../../../Services/Home/traerProductos";
 import Product from "../../../Component/layout/product/Product";
 import Loader from "../../../Component/Loader/Loader";
@@ -12,12 +11,13 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            const response = await traerProductos();
-            const data = response?.data;
-            setProducts(data || null)
+            
+                const response = await traerProductos();
+                const data = response?.data;
+                setProducts(data)
+            
         })()
-    }, [])
-
+    },[])
 
     return (
         <div className="home-contenedor">

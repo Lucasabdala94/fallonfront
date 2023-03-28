@@ -41,7 +41,7 @@ export default function Profile() {
             <h3 className="title-profile">Correo Electronico</h3>
             <form className="form-profile" onSubmit={handleSubmitCorreo} >
                 <label name="correo">{user?.email}</label>
-                <div>
+                <div className="contenedor-input-profile">
                     <input type="text" name="correo" onChange={changeCorreo} value={correo} />
                     <button type="submit">Actializar correo</button>
                 </div>
@@ -56,8 +56,8 @@ export default function Profile() {
             <form className="form-profile" onSubmit={handleSubmitUsername} >
                 <label name="userName">{user?.displayName ? user?.displayName : "No definido"
                 }</label>
-                <div>
-                    <input name="userName" placeholder="Cambiar Nombre de usuario" value={userName} onChange={changeUsername}></input>
+                <div className="contenedor-input-profile">
+                    <input name="userName" placeholder="Nombre de usuario" value={userName} onChange={changeUsername}></input>
                     <button type="submit">Actualizar Usuario</button>
                 </div>
             </form>

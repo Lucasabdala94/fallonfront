@@ -56,11 +56,13 @@
     display: flex;
     flex-direction: column;
     user-select:none;
+    height: 38px;
 }
 
 .stock {
     font-size: 14px;
     letter-spacing: 1px;
+    
 }
 
 .errorModal {

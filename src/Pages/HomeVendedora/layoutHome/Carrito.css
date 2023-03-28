@@ -55,3 +55,14 @@
 .totalPagar{
     margin: 10px 25px;
 }
+.margin-boton-15{
+    margin-bottom: 30px;
+}
+
+.contenedor-compra{
+    display: flex;
+    flex-direction: column;
+}
+.margin-top-5{
+    padding-top: 12px;
+}

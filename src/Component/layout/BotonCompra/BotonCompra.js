@@ -72,7 +72,8 @@ export default function BotonCompra() {
                                 product: productoAnalizar.nombre,
                                 precio:productoAnalizar.precio,
                                 tonoLetra:productoAnalizar.tonoLetra,
-                                textoFaltante:`El producto ${Element?.product} solo quedaban en stock ${productoAnalizar.stock}.No se pudo comprar los ${Element?.cant} que usted solicito`,
+                                faltante:true,
+                                textoFaltante:`Los ${Element?.cant} productos ${Element?.product} solo quedaban en stock ${productoAnalizar.stock}`,
 
                             }
                         }

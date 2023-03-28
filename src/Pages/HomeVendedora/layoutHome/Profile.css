@@ -5,6 +5,7 @@
     padding: 20px;
     background-color: rgb(199 15 15 / 46%);
     border-radius: 12px;
+    letter-spacing: 1.4px;
 }
 
 .form-profile{
@@ -25,7 +26,7 @@
     height: 8vh;
     font-size: 20px;
     font-weight: bold;
-    color: rgb(120, 9, 9);
+    color: #621111b8;
     margin-bottom: 20px;
     border-bottom: 3px solid rgb(255,255,255);
     
@@ -33,4 +34,30 @@
 .container-profile div:last-child{
     border: none;
     margin-bottom: 0;
+}
+.contenedor-input-profile input{
+    width: 200px;
+    padding: 6px;
+    margin-right: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    border: none;
+}
+.contenedor-input-profile input:focus-visible{
+    outline: none;
+}
+.contenedor-input-profile button{
+    border-radius: 4px;
+    padding: 4px;
+    border: none;
+    color: rgba(0, 0, 0, 0.806);
+    background: rgb(255, 253, 254);
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 12px;
+    box-shadow: 2px 2px 2px #121212;
+    -webkit-box-shadow: 2px 2px 2px #121212;
+    -moz-box-shadow: 2px 2px 2px #121212;
 }

@@ -8,10 +8,6 @@ export default function Carrito() {
 
     const { cart, clearCart, removeProduct, sumarCarrito } = useCartContext();
 
-    const deleteCart = () => {
-        clearCart();
-    }
-
     useEffect(() => {
 
     }, [cart])
@@ -65,7 +61,7 @@ export default function Carrito() {
 
                     <div className="cont-totalPagar"><p className="totalPagar"> Total ${sumarCarrito()}</p></div>
 
-                    <div><button className="button-login " onClick={deleteCart}>Limpiar carro</button></div>
+                    <div><button className="button-login " onClick={clearCart}>Limpiar carro</button></div>
                     <BotonCompra />
                 </>
                 :
