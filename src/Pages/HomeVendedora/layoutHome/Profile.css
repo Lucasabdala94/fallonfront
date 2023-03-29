@@ -15,6 +15,9 @@
     letter-spacing: 1px;
     font-size: 18px;
 }
+.form-profile label{
+    width: 300px;
+}
 .form-profile div{
     margin-left: 50px;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Product from "../../../Component/layout/product/Product";
-import traerProductos from "../../../Services/Home/traerProductos";
+import traerAllProduct from "../../../Services/Home/traerAllProduct";
 
 export default function Oferta (){
     
@@ -8,13 +8,13 @@ export default function Oferta (){
 
     useEffect(() => {
         (async () => {
-            const response = await traerProductos();
+            const response = await traerAllProduct();
             const data = response?.data;
             setProducts(data || null)
         })()
     }, [])
     return (
-        <div className="home-contenedor">
+        <div className="contenedor-product">
 
             {products ?
                 products?.map((product) => {

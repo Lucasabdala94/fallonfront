@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import useCartContext from "../../../hooks/useCartContext";
 import useModal from "../../../hooks/useModal";
 import Loader from "../../Loader/Loader";
-import traerProductos from "../../../Services/Home/traerProductos";
+
 import Modal from "../../modal/Modal";
 import enviarPedido from "../../../Services/Home/carrito/enviarPedido";
 import useAuth from "../../../hooks/useAuth";
+import traerAllProduct from "../../../Services/Home/traerAllProduct";
 
 
 export default function BotonCompra() {
@@ -19,7 +20,7 @@ export default function BotonCompra() {
         setLoaders(true);
         /*TRAEMOS PRODUCTOS DE LA DB*/
         try {
-            const response = await traerProductos();
+            const response = await traerAllProduct();
 
             /* Dato de todos los producto en la db */
             const data = response?.data.map(product => {
