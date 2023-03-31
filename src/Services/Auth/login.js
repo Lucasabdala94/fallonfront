@@ -9,7 +9,7 @@ export default async function loginService(DatoLogin,setError,navigate) {
         await signInWithEmailAndPassword(auth, DatoLogin.email, DatoLogin.password)
         navigate("/home/inicio")
     } catch (error) {
-        console.log(error)
+
         if (error.code === "auth/wrong-password") {
             setError("correo o contraseña incorrectos")
         }

@@ -1,3 +1,3 @@
-export const URL="https://fallon-back.onrender.com/api"
+export const URL="https://fallon-backsql2.onrender.com/api"
 
 export const CANTPRODUCTPAGE=12;

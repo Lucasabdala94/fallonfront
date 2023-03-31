@@ -45,7 +45,6 @@ export default function Home() {
             setPage(page - 1)
         }
     }
-    console.log(arrayPage)
     return (
         <div className="home-contenedor">
 

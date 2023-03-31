@@ -4,7 +4,7 @@ import descontarStock from "./descontarStock";
 export default async function enviarPedido(cartFinal, data,user,total) {
 
   try {
-    const url = `${URL}/pedidos`;
+    const url = `${URL}/compras`;
     
     const method = {
       method: "POST",

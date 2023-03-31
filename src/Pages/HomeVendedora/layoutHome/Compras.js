@@ -17,7 +17,7 @@ export default function Compras() {
         })()
         // eslint-disable-next-line
     }, [user])
-    console.log(compras)
+    
     return (
         <div className="contenedor-carrito">
             {compras !== null ?
